@@ -14,6 +14,54 @@
         #map { height: 500px; 
         width: 1215px;
     margin: 0px auto;}
+    .onoffswitch {
+    position: relative; width: 79px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 18px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 22px; padding: 0; line-height: 22px;
+    font-size: 17px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 18px;
+    background-color: #18B893; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 18px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+    
+}
+.onoffswitch-switch {
+    display: block; width: 18px; margin: 2px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 53px;
+    border: 2px solid #999999; border-radius: 18px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
     </style>
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -90,7 +138,7 @@ marker1.bindPopup('第一站 <a href="6_1大豹溪難易度選擇.html" class="b
 marker2.bindPopup('第二站 <a href="6_2茶葉歷史難易度選擇.html" class="btn btn-info btn-lg">大板根茶葉歷史文物館</a>' );
 marker3.bindPopup('第三站 <a href="6_難易度選擇.html" class="btn btn-info btn-lg ">台北記憶倉庫</a>' );
 marker4.bindPopup('第四站 <a href="6_4有記難易度選擇.html" class="btn btn-success btn-lg">有記茗茶</a>' );
-marker5.bindPopup('第五站 <a href="6_5新春芳難易度選擇.html" class="btn btn-info btn-lg ">新芳春茶行</a>' );
+marker5.bindPopup('第五站  <a href="6_5新春芳難易度選擇.html" class="btn btn-success btn-lg">有記茗茶</a>');
 
 
     L.tileLayer('./images/地圖.PNG', {
