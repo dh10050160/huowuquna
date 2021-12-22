@@ -79,12 +79,12 @@
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
 
-   <script> var map = L.map('map').setView([51.515152, 0.733509], 13);
-   var marker1 = L.marker([51.515152, 0.733509]).addTo(map);
-   var marker2 = L.marker([51.505003, 0.756512]).addTo(map);
-   var marker3= L.marker([51.495492, 0.812988]).addTo(map);
-   var marker4 = L.marker([51.517503, 0.854359]).addTo(map);
-   var marker5 = L.marker([51.5, 0.9]).addTo(map);
+   <script> var map = L.map('map').setView([51.515964, 0.815978], 17);
+   var marker1 = L.marker([51.516067, 0.733578]).addTo(map);
+   var marker2 = L.marker([51.51556, 0.735883]).addTo(map);
+   var marker3= L.marker([51.514986, 0.738788]).addTo(map);
+   var marker4 = L.marker([51.516575, 0.7412]).addTo(map);
+   var marker5 = L.marker([51.51572, 0.743901]).addTo(map);
  
 marker1.bindPopup('第一站 <a href="6_1大豹溪難易度選擇.html" class="btn btn-info btn-lg ">大豹溪茶廠</a>').openPopup();
 marker2.bindPopup('第二站 <a href="6_2茶葉歷史難易度選擇.html" class="btn btn-info btn-lg">大板根茶葉歷史文物館</a>' );
@@ -101,7 +101,14 @@ marker5.bindPopup('第五站 <a href="6_5新春芳難易度選擇.html" class="b
     zoomOffset: -1,
     accessToken: 'your.mapbox.access.token'
 }).addTo(map);
-
+var popup = L.popup();
+//顯示座標
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+}
 
 map.on('click', onMapClick);
 </script>
