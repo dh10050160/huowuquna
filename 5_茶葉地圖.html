@@ -12,7 +12,8 @@
 
     <style>
         #map { height: 500px; 
-        width: 1215px;}
+        width: 1215px;
+    margin: 0px auto;}
     </style>
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -78,18 +79,18 @@
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
 
-   <script> var map = L.map('map').setView([51.505, -0.09], 13);
+   <script> var map = L.map('map').setView([51.515152, 0.733509], 13);
    var marker1 = L.marker([51.515152, 0.733509]).addTo(map);
    var marker2 = L.marker([51.505003, 0.756512]).addTo(map);
    var marker3= L.marker([51.495492, 0.812988]).addTo(map);
    var marker4 = L.marker([51.517503, 0.854359]).addTo(map);
    var marker5 = L.marker([51.5, 0.9]).addTo(map);
  
-marker1.bindPopup("<b>Hello world!</b><br>大板根." ).openPopup();
-marker2.bindPopup("<b>Hello world!</b><br>茶葉文物." ).openPopup();
-marker3.bindPopup("<b>Hello world!</b><br>三井倉庫." ).openPopup();
-marker4.bindPopup("<b>Hello world!</b><br>有記." ).openPopup();
-marker5.bindPopup("<b>Hello world!</b><br>新春芳." ).openPopup();
+marker1.bindPopup('第一站 <a href="6_1大豹溪難易度選擇.html" class="btn btn-info btn-lg ">大豹溪茶廠</a>').openPopup();
+marker2.bindPopup('第二站 <a href="6_2茶葉歷史難易度選擇.html" class="btn btn-info btn-lg">大板根茶葉歷史文物館</a>' ).openPopup();
+marker3.bindPopup('第三站 <a href="6_難易度選擇.html" class="btn btn-info btn-lg ">台北記憶倉庫</a>' ).openPopup();
+marker4.bindPopup('第四站 <a href="6_4有記難易度選擇.html" class="btn btn-success btn-lg">有記茗茶</a>' ).openPopup();
+marker5.bindPopup('第五站 <a href="6_5新春芳難易度選擇.html" class="btn btn-info btn-lg ">新芳春茶行</a>' ).openPopup();
 
 
     L.tileLayer('./images/地圖.PNG', {
@@ -101,13 +102,6 @@ marker5.bindPopup("<b>Hello world!</b><br>新春芳." ).openPopup();
     accessToken: 'your.mapbox.access.token'
 }).addTo(map);
 var popup = L.popup();
-
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(map);
-}
 
 map.on('click', onMapClick);
 </script>
