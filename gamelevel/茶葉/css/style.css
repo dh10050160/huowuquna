@@ -5,13 +5,14 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #FFB5B5;
 }
 
 h1 {
     font-weight: normal;
     text-align: center;
     text-shadow: 0cm;
-    color: azure;
+    color: rgb(0, 102, 255);
 }
 
 h3 {
