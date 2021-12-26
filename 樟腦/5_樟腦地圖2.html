@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <style>
+        #map { height: 500px; 
+        width: 1215px;
+    margin: 0px auto;}
+    .onoffswitch {
+    position: relative; width: 79px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 18px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 22px; padding: 0; line-height: 22px;
+    font-size: 17px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 18px;
+    background-color: #18B893; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 18px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+    
+}
+.onoffswitch-switch {
+    display: block; width: 18px; margin: 2px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 53px;
+    border: 2px solid #999999; border-radius: 18px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+    </style>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+    <title>map</title>
+</head>
+
+<body>
+    <audio src="music/Sufjan Stevens, The Only Thing (Official Audio).mp3" autoplay></audio>
+    <div>
+        <div class="container">
+            <div class="row" style="height: 30px;"></div>
+            <div class="row text-center" style="height: 120px;">
+                <div class="col-1">
+                    <div class="col">
+                        <a href="../3_choose.html" class="btn btn-primary btn-lg ">返回</a>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="col">
+                        <a href="../11_公佈欄.html" class="btn btn-info btn-lg ">公佈欄</a>
+                    </div>
+                </div>
+                <div class="col-6"><h1>樟腦地圖</h1>
+
+                </div>
+                <div class="col-2">
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="col-1">
+                    <div class="col">
+                        <button class="btn btn-dark btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">工具</button>
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                            <div class="offcanvas-header">
+                                <h5 id="offcanvasRightLabel">工具</h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <h4><a href="../3_choose.html" class="btn btn-warning">返回角色</a></h4>
+                                <a href="#" class="btn btn-warning">關閉音樂</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="map"></div>
+
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+   <script> var map = L.map('map').setView([51.515967, 0.741437], 17);
+   var marker1 = L.marker([51.516067, 0.733578]).addTo(map);
+   var marker2 = L.marker([51.51556, 0.735883]).addTo(map);
+   var marker3= L.marker([51.514986, 0.738788]).addTo(map);
+   var marker4 = L.marker([51.516575, 0.7412]).addTo(map);
+   var marker5 = L.marker([51.51572, 0.743901]).addTo(map);
+ 
+marker1.bindPopup('第一站 <a href="6_1角板山難易度選擇.html" class="btn btn-info btn-lg ">角板山樟腦收納所</a>');
+marker2.bindPopup('第二站 <a href="6_2料館難易度選擇.html" class="btn btn-info btn-lg">料館媽祖廟</a>' ).openPopup();
+marker3.bindPopup('第三站 <a href="6_3專賣局難易度選擇.html" class="btn btn-info btn-lg ">專賣局樟腦課</a>' );
+marker4.bindPopup('第四站 <a href="6_4南門難易度選擇.html" class="btn btn-info btn-lg">南門工場</a>' );
+marker5.bindPopup('第五站 <a href="6_5三井難易度選擇.html" class="btn btn-info btn-lg">三井倉庫</a>');
+
+
+    L.tileLayer('./img/地圖.PNG', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'your.mapbox.access.token'
+}).addTo(map);
+var popup = L.popup();
+//顯示座標
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
+</script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
